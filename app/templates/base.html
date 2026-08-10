@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Codex Vitae — O Manual de Instruções da Vida & Otimização Pessoal{% endblock %}</title>
+    
+    <!-- PWA Settings -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#07090e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3062/3062319.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Codex Vitae é o Life OS de Engenharia Humana e Otimização Pessoal em 6 módulos baseados em IA Open-Source e Biometria.">
+    <meta name="keywords" content="Codex Vitae, Biohacking, Estoicismo, Otimização Pessoal, Engenharia Humana, Foco, IA, PWA, Push Notifications">
+    <meta name="author" content="Matheus Barbosa - matheusbarbosatech">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        },
+                        dark: {
+                            base: '#07090e',
+                            surface: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/custom.css">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-dark-base text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-cyan-500 flex items-center justify-center text-dark-base font-extrabold text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-xl tracking-tight text-white group-hover:text-brand-500 transition-colors">
+                        CODEX <span class="text-brand-500">VITAE</span>
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Life OS & Biohacking</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="/onboarding" class="text-brand-400 font-bold hover:text-brand-300 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-wand-magic-sparkles text-xs"></i> Diagnóstico Grátis
+                </a>
+                <a href="/#features" class="hover:text-brand-500 transition-colors">Os 6 Módulos</a>
+                <a href="/auditor-burnout" class="text-amber-400 hover:text-amber-300 font-bold transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-fire text-xs"></i> Auditor de Burnout
+                </a>
+                <a href="/#pricing" class="hover:text-brand-500 transition-colors">Planos</a>
+                <a href="https://github.com/matheusbarbosatech/codex-vitae-saas" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-1.5">
+                    <i class="fa-brands fa-github text-base"></i> GitHub Repo
+                </a>
+            </nav>
+
+            <!-- User Auth Buttons -->
+            <div class="flex items-center gap-4">
+                {% if user %}
+                    <a href="/dashboard" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-sm font-semibold flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-gauge text-brand-500"></i> Dashboard
+                    </a>
+                    <a href="/logout" class="px-4 py-2.5 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-semibold border border-red-500/20 transition-all">
+                        Sair
+                    </a>
+                {% else %}
+                    <a href="/login" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors px-3 py-2">
+                        Entrar
+                    </a>
+                    <a href="/register" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-500 to-cyan-500 text-dark-base font-bold text-sm shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        Comece Agora
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-dark-base font-bold text-base">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="font-heading font-bold text-lg text-white">CODEX VITAE</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm leading-relaxed mb-4">
+                        O Primeiro Sistema Operacional para a Vida (Life OS) com PWA, Notificações Push VAPID, Terra API e IA Open-Source.
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        Desenvolvido por <a href="https://github.com/matheusbarbosatech/" target="_blank" class="text-brand-500 hover:underline font-semibold">Matheus Barbosa</a>.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-semibold text-white text-sm mb-4 uppercase tracking-wider">Growth & Tools</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/auditor-burnout" class="hover:text-brand-500 transition-colors">Auditor de Burnout Biométrico</a></li>
+                        <li><a href="/#features" class="hover:text-brand-500 transition-colors">Os 6 Módulos Científicos</a></li>
+                        <li><a href="/#pricing" class="hover:text-brand-500 transition-colors">Reverse Trial (14 Dias Pro)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-semibold text-white text-sm mb-4 uppercase tracking-wider">Tecnologias</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-brand-500"></i> PWA & Service Worker (`sw.js`)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-bell text-cyan-400"></i> Web Push API & VAPID</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-heart-pulse text-red-400"></i> Terra API (Wearables)</li>
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-python text-emerald-400"></i> FastAPI & Celery Worker</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Codex Vitae SaaS. Todos os direitos reservados.</p>
+                <div class="flex gap-6 mt-4 sm:mt-0">
+                    <a href="https://github.com/matheusbarbosatech/" target="_blank" class="hover:text-slate-300">GitHub Profile</a>
+                    <a href="https://github.com/matheusbarbosatech/codex-vitae-saas" target="_blank" class="hover:text-slate-300">Repositório GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+    
+    <!-- Service Worker Registration & Web Push Subscription Script -->
+    <script>
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', async () => {
+            try {
+                const reg = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+                console.log('✔ Service Worker registrado com sucesso:', reg.scope);
+            } catch (err) {
+                console.error('❌ Erro ao registrar Service Worker:', err);
+            }
+        });
+    }
+
+    async function subscribeUserToPush() {
+        if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+            alert('Seu navegador não suporta Notificações Push PWA.');
+            return false;
+        }
+
+        try {
+            const permission = await Notification.requestPermission();
+            if (permission !== 'granted') {
+                alert('Permissão de notificação negada pelo usuário.');
+                return false;
+            }
+
+            const reg = await navigator.serviceWorker.ready;
+
+            // Fetch VAPID Public Key from FastAPI backend
+            const vapidResp = await fetch('/api/v1/notifications/vapid-public-key');
+            const vapidData = await vapidResp.json();
+            const convertedVapidKey = urlBase64ToUint8Array(vapidData.public_key);
+
+            const subscription = await reg.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: convertedVapidKey
+            });
+
+            console.log('✔ Assinatura Push gerada com sucesso:', subscription);
+
+            // Send subscription payload to FastAPI backend
+            const subJson = subscription.toJSON();
+            await fetchApi('/api/v1/notifications/subscribe', {
+                method: 'POST',
+                body: JSON.stringify({
+                    endpoint: subJson.endpoint,
+                    keys: {
+                        p256dh: subJson.keys.p256dh,
+                        auth: subJson.keys.auth
+                    }
+                })
+            });
+
+            return true;
+        } catch (err) {
+            console.error('❌ Erro ao inscrever em Notificações Push:', err);
+            alert('Erro ao ativar notificações Push: ' + err.message);
+            return false;
+        }
+    }
+    </script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

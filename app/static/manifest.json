@@ -1,0 +1,24 @@
+{
+  "name": "Codex Vitae — Life OS & Biohacking",
+  "short_name": "CodexVitae",
+  "description": "O Primeiro Sistema Operacional para a Vida com Biometria & IA Open-Source",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#07090e",
+  "theme_color": "#07090e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3062/3062319.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3062/3062319.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
