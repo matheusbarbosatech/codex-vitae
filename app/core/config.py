@@ -21,11 +21,6 @@ class Settings(BaseSettings):
     DEFAULT_LLM_MODEL: str = "groq/llama-3.3-70b-versatile"
     FAST_LLM_MODEL: str = "groq/llama-3.1-8b-instant"
     
-    # Terra API / Wearables Integrator Settings
-    TERRA_DEV_ID: Optional[str] = None
-    TERRA_API_KEY: Optional[str] = None
-    TERRA_WEBHOOK_SECRET: Optional[str] = None
-    
     # VAPID Keys for PWA Native Push Notifications
     VAPID_PUBLIC_KEY: str = "BEl62iUYgUivxIkv69yViEuiBIa45xV8_7xJ0ElnX_E7f3Wv1Uu91Nf4-X2xY5f4y_uW0130X-w0"
     VAPID_PRIVATE_KEY: str = "mM8v-U0130X-w0_7xJ0ElnX_E7f3Wv1Uu91Nf4-X2xY"
