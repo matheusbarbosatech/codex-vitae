@@ -7,7 +7,7 @@
 ![PWA](https://img.shields.io/badge/PWA-Progressive%20Web%20App-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 ![Web Push](https://img.shields.io/badge/Web_Push-VAPID%20Nativo-FF6F00?style=for-the-badge&logo=googlechrome&logoColor=white)
 ![Celery](https://img.shields.io/badge/Celery-Modo%20Sentinela-37814A?style=for-the-badge&logo=celery&logoColor=white)
-![Terra API](https://img.shields.io/badge/Terra_API-Wearables-FF4500?style=for-the-badge&logo=apple&logoColor=white)
+![Biometria Nativa](https://img.shields.io/badge/Biometria-Nativa-FF4500?style=for-the-badge&logo=apple&logoColor=white)
 ![LiteLLM](https://img.shields.io/badge/LiteLLM-Proxy%20%26%20Routing-10B981?style=for-the-badge&logo=openai&logoColor=white)
 
 </div>
